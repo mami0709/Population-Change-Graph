@@ -21,5 +21,13 @@
         "specialLink": ["href", "as"]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["jest.config.js"],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off"
+      }
+    }
+  ]
 }
