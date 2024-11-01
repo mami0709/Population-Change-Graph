@@ -1,20 +1,20 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Home from '@/app/page';
+import Home from '@/app/(home)/page';
 import { getPrefectures } from '@/lib/resasService';
-import { PrefecturePopulationViewer } from '@/app/components/PrefecturePopulationViewer';
+import { PrefecturePopulationViewer } from '@/app/(home)/components/PrefecturePopulationViewer';
 
 jest.mock('@/lib/resasService');
 const mockGetPrefectures = getPrefectures as jest.MockedFunction<
   typeof getPrefectures
 >;
 
-jest.mock('@/app/components/Title', () => ({
+jest.mock('@/app/(home)/components/Title', () => ({
   Title: jest.fn(() => <div data-testid="title" />),
 }));
 
-jest.mock('@/app/components/PrefecturePopulationViewer', () => ({
+jest.mock('@/app/(home)/components/PrefecturePopulationViewer', () => ({
   PrefecturePopulationViewer: jest.fn(() => <div data-testid="viewer" />),
 }));
 

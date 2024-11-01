@@ -1,24 +1,24 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { PrefecturePopulationViewer } from '@/app/components/PrefecturePopulationViewer';
-import { usePrefectureData } from '@/app/hooks/usePrefectureData';
-import { PrefectureCheckboxes } from '@/app/components/PrefectureCheckboxes';
-import { Tab } from '@/components/common/Tab';
+import { PrefecturePopulationViewer } from '@/app/(home)/components/PrefecturePopulationViewer';
+import { usePrefectureData } from '@/app/(home)/hooks/usePrefectureData';
+import { PrefectureCheckboxes } from '@/app/(home)/components/PrefectureCheckboxes';
+import { Tab } from '@/app/(home)/components/Tab';
 
-jest.mock('@/app/hooks/usePrefectureData');
+jest.mock('@/app/(home)/hooks/usePrefectureData');
 
-jest.mock('@/app/components/PrefectureCheckboxes', () => ({
+jest.mock('@/app/(home)/components/PrefectureCheckboxes', () => ({
   PrefectureCheckboxes: jest.fn(() => (
     <div data-testid="prefecture-checkboxes" />
   )),
 }));
 
-jest.mock('@/app/components/PopulationChart', () => ({
+jest.mock('@/app/(home)/components/PopulationChart', () => ({
   PopulationChart: jest.fn(() => <div data-testid="population-chart" />),
 }));
 
-jest.mock('@/components/common/Tab', () => ({
+jest.mock('@/app/(home)/components/Tab', () => ({
   Tab: jest.fn(() => <div data-testid="tab" />),
 }));
 

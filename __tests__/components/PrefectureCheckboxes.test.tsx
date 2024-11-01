@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { PrefectureCheckboxes } from '@/app/components/PrefectureCheckboxes';
+import { PrefectureCheckboxes } from '@/app/(home)/components/PrefectureCheckboxes';
 
 describe('PrefectureCheckboxes', () => {
   const mockPrefectures = [

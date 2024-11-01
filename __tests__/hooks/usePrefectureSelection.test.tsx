@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { usePrefectureSelection } from '@/app/hooks/usePrefectureSelection';
+import { usePrefectureSelection } from '@/app/(home)/hooks/usePrefectureSelection';
 
 describe('usePrefectureSelection', () => {
   const setupHook = () => renderHook(() => usePrefectureSelection());

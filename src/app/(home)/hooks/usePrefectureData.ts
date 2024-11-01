@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { usePrefectureSelection } from '@/app/hooks/usePrefectureSelection';
+import { usePrefectureSelection } from '@/app/(home)/hooks/usePrefectureSelection';
 import { getPopulation } from '@/lib/resasService';
 import { CategoryKey, Population, Prefecture } from '@/types/resas';
 

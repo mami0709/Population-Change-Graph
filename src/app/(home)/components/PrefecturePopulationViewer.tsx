@@ -1,11 +1,11 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { PopulationChart } from '@/app/components/PopulationChart';
-import { PrefectureCheckboxes } from '@/app/components/PrefectureCheckboxes';
-import { Tab } from '@/components/common/Tab';
+import { PopulationChart } from '@/app/(home)/components/PopulationChart';
+import { PrefectureCheckboxes } from '@/app/(home)/components/PrefectureCheckboxes';
+import { Tab } from '@/app/(home)/components/Tab';
 import { categories } from '@/types/resas';
-import { usePrefectureData } from '@/app/hooks/usePrefectureData';
+import { usePrefectureData } from '@/app/(home)/hooks/usePrefectureData';
 import { Loading } from '@/components/common/Loading';
 
 interface PrefecturePopulationViewerProps {

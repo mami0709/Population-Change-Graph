@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Tab } from '@/components/common/Tab';
+import { Tab } from '@/app/(home)/components/Tab';
 import { categories, CategoryKey } from '@/types/resas';
 
 describe('Tab', () => {
