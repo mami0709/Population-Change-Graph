@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Home from '@/app/page';
 import { getPrefectures } from '@/lib/resasService';
+import { PrefecturePopulationViewer } from '@/app/components/PrefecturePopulationViewer';
 
 jest.mock('@/lib/resasService');
 const mockGetPrefectures = getPrefectures as jest.MockedFunction<
@@ -38,9 +39,6 @@ describe('Home', () => {
     expect(screen.getByTestId('viewer')).toBeInTheDocument();
 
     // PrefecturePopulationViewer に渡された props を検証
-    const {
-      PrefecturePopulationViewer,
-    } = require('@/app/components/PrefecturePopulationViewer');
     const mockProps = (PrefecturePopulationViewer as jest.Mock).mock
       .calls[0][0];
 
