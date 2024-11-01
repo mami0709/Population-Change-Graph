@@ -49,6 +49,7 @@ export function usePrefectureData({ prefectures }: UsePrefectureDataProps) {
         .catch((error) => {
           console.error('エラー:', error);
           setError('データの取得中にエラーが発生しました。');
+          setPopulationData(null);
         });
     } else {
       setPopulationData([]);

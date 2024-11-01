@@ -13,6 +13,7 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
 };
 
 module.exports = createJestConfig(customJestConfig);
