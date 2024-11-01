@@ -31,7 +31,7 @@ describe('Tab', () => {
       categories[defaultSelectedCategory]
     );
     expect(selectedButton).toHaveClass(
-      'text-black font-semibold border-b-2 border-blue-500'
+      'text-white bg-gradient-to-r from-blue-500 to-purple-500 shadow-md'
     );
   });
 });
