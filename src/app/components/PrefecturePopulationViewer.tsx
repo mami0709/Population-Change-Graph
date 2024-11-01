@@ -1,8 +1,8 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { Checkbox } from '@/components/common/Checkbox';
 import { PopulationChart } from '@/app/components/PopulationChart';
+import { PrefectureCheckboxes } from '@/app/components/PrefectureCheckboxes';
 import { Tab } from '@/components/common/Tab';
 import { categories } from '@/types/resas';
 import { usePrefectureData } from '@/app/hooks/usePrefectureData';
@@ -26,16 +26,11 @@ export function PrefecturePopulationViewer({
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-2 sm:grid-cols-4 md:grid-cols-8 text-[10px] sm:text-xs md:text-sm">
-        {prefectures.map((prefecture) => (
-          <Checkbox
-            key={prefecture.prefCode}
-            label={prefecture.prefName}
-            checked={selectedPrefectures.includes(prefecture.prefName)}
-            onChange={() => handleCheckboxChange(prefecture.prefName)}
-          />
-        ))}
-      </div>
+      <PrefectureCheckboxes
+        prefectures={prefectures}
+        selectedPrefectures={selectedPrefectures}
+        onCheckboxChange={handleCheckboxChange}
+      />
 
       <Tab
         selectedCategory={selectedCategory}
