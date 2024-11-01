@@ -1,7 +1,14 @@
-export default function Home() {
+import { Title } from '@/app/components/Title';
+import { PrefecturePopulationViewer } from '@/app/components/PrefecturePopulationViewer';
+import { getPrefectures } from '@/lib/resasService';
+
+export default async function Home() {
+  const prefectures = await getPrefectures();
+
   return (
     <div>
-      <h1>タイトル</h1>
+      <Title />
+      <PrefecturePopulationViewer prefectures={prefectures} />
     </div>
   );
 }

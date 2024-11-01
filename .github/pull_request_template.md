@@ -1,3 +1,7 @@
+## issue
+
+close xxx
+
 ## 変更部分
 
 - xxx
