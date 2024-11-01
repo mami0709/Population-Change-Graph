@@ -1,4 +1,4 @@
 module.exports = {
   // ignorePaths: ['test/e2e/**/*'],
-  words: ['resas', 'chartjs'],
+  words: ['resas', 'chartjs', 'testid'],
 };
