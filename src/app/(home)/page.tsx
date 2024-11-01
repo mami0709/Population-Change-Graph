@@ -1,5 +1,5 @@
-import { Title } from '@/app/components/Title';
-import { PrefecturePopulationViewer } from '@/app/components/PrefecturePopulationViewer';
+import { Title } from '@/app/(home)/components/Title';
+import { PrefecturePopulationViewer } from '@/app/(home)/components/PrefecturePopulationViewer';
 import { getPrefectures } from '@/lib/resasService';
 
 export default async function Home() {

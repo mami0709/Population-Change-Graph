@@ -1,5 +1,5 @@
 import { renderHook, act, waitFor } from '@testing-library/react';
-import { usePrefectureData } from '@/app/hooks/usePrefectureData';
+import { usePrefectureData } from '@/app/(home)/hooks/usePrefectureData';
 import { getPopulation } from '@/lib/resasService';
 import { Prefecture, Population } from '@/types/resas';
 

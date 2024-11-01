@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: '日本人口データマップ',
+  title: 'Pop Trends Japan',
   description: '都道府県ごとの人口推移を見ることができます',
 };
 

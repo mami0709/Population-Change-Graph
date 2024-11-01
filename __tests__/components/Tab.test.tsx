@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Tab } from '@/components/common/Tab';
+import { Tab } from '@/app/(home)/components/Tab';
 import { categories, CategoryKey } from '@/types/resas';
 
 describe('Tab', () => {
@@ -31,7 +31,7 @@ describe('Tab', () => {
       categories[defaultSelectedCategory]
     );
     expect(selectedButton).toHaveClass(
-      'text-black font-semibold border-b-2 border-blue-500'
+      'text-white bg-gradient-to-r from-blue-500 to-purple-500 shadow-md'
     );
   });
 });
