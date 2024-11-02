@@ -1,12 +1,10 @@
-name: CI Pipeline
+name: CI Checks
 
 on: push
 
 jobs:
-  setup:
+  run_checks:
     runs-on: ubuntu-latest
-    outputs:
-      cache-key: ${{ steps.cache.outputs.cache-hit }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -17,50 +15,19 @@ jobs:
           node-version: '18.18.0'
 
       - name: Install Dependencies
-        id: cache
         run: npm install
 
-      - name: Cache Node Modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-  lint:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Run ESLint
-        run: npx eslint .
-
-  format:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: Run Prettier
         run: npx prettier --check .
 
-  # ビルド
-  build:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Build Project
-        run: npm run build
+      - name: Run ESLint
+        run: npx eslint --ext ".js,.ts,.tsx" --ignore-path .gitignore .
 
-  unit_tests:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: Run Unit Tests
         run: npm test
-
-  e2e_tests:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
 
       - name: Start Next.js Server
         run: |
