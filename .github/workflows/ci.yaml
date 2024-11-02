@@ -31,7 +31,7 @@ jobs:
     needs: setup
     steps:
       - name: Run ESLint
-        run: npx eslint --ext ".js,.ts,.tsx" --ignore-path .gitignore .
+        run: npx eslint . --ignore-path .gitignore
 
   format:
     runs-on: ubuntu-latest
