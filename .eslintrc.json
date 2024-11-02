@@ -30,5 +30,5 @@
       }
     }
   ],
-  "ignorePatterns": ["e2e/**/*.ts"]
+  "ignorePatterns": ["e2e/"]
 }
