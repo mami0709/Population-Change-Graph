@@ -17,32 +17,28 @@ jobs:
           node-version: '18.18.0'
 
       - name: Install Dependencies
-        run: |
-          cd yumemi-coding-test
-          npm install
+        id: cache
+        run: npm install
 
       - name: Cache Node Modules
         uses: actions/cache@v3
         with:
-          path: yumemi-coding-test/node_modules{ hashFiles('yumemi-coding-test/package-lock.json') }}
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
 
   lint:
     runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Run ESLint
-        run: |
-          cd yumemi-coding-test
-          npx eslint --ext ".js,.ts,.tsx" --ignore-path .gitignore .
+        run: npx eslint --ext ".js,.ts,.tsx" --ignore-path .gitignore .
 
   format:
     runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Run Prettier
-        run: |
-          cd yumemi-coding-test
-          npx prettier --check .
+        run: npx prettier --check .
 
   # ビルド
   build:
@@ -50,37 +46,28 @@ jobs:
     needs: setup
     steps:
       - name: Build Project
-        run: |
-          cd yumemi-coding-test
-          npm run build
+        run: npm run build
 
   unit_tests:
     runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Run Unit Tests
-        run: |
-          cd yumemi-coding-test
-          npm test
+        run: npm test
 
   e2e_tests:
     runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Install Playwright Browsers
-        run: |
-          cd yumemi-coding-test
-          npx playwright install --with-deps
+        run: npx playwright install --with-deps
 
       - name: Start Next.js Server
         run: |
-          cd yumemi-coding-test
           npm run dev &
           npx wait-on http://localhost:4000
 
       - name: Run E2E Tests with Playwright
-        run: |
-          cd yumemi-coding-test
-          npx playwright test
+        run: npx playwright test
         env:
           CI: true
